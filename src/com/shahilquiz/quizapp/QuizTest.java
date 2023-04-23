@@ -1,8 +1,13 @@
 package com.shahilquiz.quizapp;
+// Used for organising similar classes and interfaces
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+// Used for action handling like click edit text etc.
 
+// Java Swing tutorial is a part of Java Foundation Classes (JFC) that is used to create window-based applications.
+// These are the swing components.
+// The ButtonGroup component manages the selected/unselected state for a set of buttons.
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,15 +20,19 @@ public class QuizTest extends JFrame implements ActionListener {
 	JLabel label;
 	JRadioButton radioButtons[] = new JRadioButton[5];
 	JButton btnNext,btnResult;
+	// Creating a set of buttons with the same ButtonGroup object means that turning "on" 
+	// one of those buttons turns off all other buttons in the group
 	ButtonGroup bg;
 	int count=0,current=0,x=1,y=1,now=0;
 	int m[] = new int[10];
 	
-	
+	// Parameterized constructor
 	public QuizTest(String s)
 	{
+		// It is used to call superclass methods, and to access the superclass constructor.
 		super(s);
 		
+		// It is for the question
 		label = new JLabel();
 		add(label);
 		bg=new ButtonGroup();
@@ -39,11 +48,13 @@ public class QuizTest extends JFrame implements ActionListener {
 		btnResult.addActionListener(this);
 		btnNext.addActionListener(this);
 		
+		// public void add is the method of the components 
 		add(btnNext);
 		add(btnResult);
 		
-		setData()
-;
+		setData();
+		
+		// setbounds(x,y,width,heigth)
 		label.setBounds(30,40,450,20);
 		radioButtons[0].setBounds(50,80,450,20);
 		radioButtons[1].setBounds(50,110,200,20);
@@ -143,7 +154,6 @@ public class QuizTest extends JFrame implements ActionListener {
 			radioButtons[2].setText("java.lang.util");
 			radioButtons[3].setText("None");
 		}
-		label.setBounds(30,40,450,20);
 		for(int i=0,j=0;i<90;i+=30,j++)
 		{
 			radioButtons[j].setBounds(50,80+i,200,20);
@@ -226,7 +236,7 @@ public class QuizTest extends JFrame implements ActionListener {
 			}
 			current++;
 			JOptionPane.showMessageDialog(this, "Correct Ans are " + count);
-		System.exit(0);
+			System.exit(0);
 		}
 		
 	}
